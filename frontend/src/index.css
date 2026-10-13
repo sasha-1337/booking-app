@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 25% 98%;
+    --foreground: 224 35% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 224 35% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 35% 12%;
+
+    --primary: 243 75% 59%;       /* Vibrant Indigo #4f46e5 */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 14% 94%;
+    --secondary-foreground: 224 35% 15%;
+
+    --muted: 220 14% 94%;
+    --muted-foreground: 220 10% 46%;
+
+    --accent: 243 75% 96%;
+    --accent-foreground: 243 75% 45%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 243 75% 59%;
+
+    --radius: 0.85rem;
+  }
+
+  .dark {
+    --background: 228 20% 7%;     /* Deep Obsidian #0b0d13 */
+    --foreground: 220 20% 96%;
+
+    --card: 226 18% 11%;          /* Sleek Dark Card #131620 */
+    --card-foreground: 220 20% 96%;
+
+    --popover: 226 18% 11%;
+    --popover-foreground: 220 20% 96%;
+
+    --primary: 243 85% 66%;       /* Electric Indigo in Dark Mode #6366f1 */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 226 16% 16%;
+    --secondary-foreground: 220 20% 96%;
+
+    --muted: 226 16% 16%;
+    --muted-foreground: 220 10% 60%;
+
+    --accent: 243 45% 18%;
+    --accent-foreground: 243 90% 80%;
+
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 226 16% 18%;
+    --input: 226 16% 18%;
+    --ring: 243 85% 66%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+}
+
+/* Glassmorphic card utility */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+.dark .glass-panel {
+  background: rgba(19, 22, 32, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* Custom modern scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.25);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.45);
+}

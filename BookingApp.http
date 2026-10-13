@@ -1,0 +1,41 @@
+@BookingApp_HostAddress = http://localhost:5046
+
+### 1. Get all rooms
+GET {{BookingApp_HostAddress}}/api/rooms
+Accept: application/json
+
+### 2. Find available rooms
+GET {{BookingApp_HostAddress}}/api/rooms/available?startTime=2026-09-15T10:00:00Z&endTime=2026-09-15T13:00:00Z&minCapacity=20
+Accept: application/json
+
+### 3. Calculate booking quote
+POST {{BookingApp_HostAddress}}/api/bookings/calculate-quote
+Content-Type: application/json
+Accept: application/json
+
+{
+  "roomId": "00000000-0000-0000-0000-000000000000",
+  "startTimeUtc": "2026-09-15T08:00:00Z",
+  "endTimeUtc": "2026-09-15T13:00:00Z",
+  "serviceIds": []
+}
+
+### 4. Create pending booking
+POST {{BookingApp_HostAddress}}/api/bookings
+Content-Type: application/json
+Accept: application/json
+
+{
+  "roomId": "00000000-0000-0000-0000-000000000000",
+  "startTimeUtc": "2026-09-15T08:00:00Z",
+  "endTimeUtc": "2026-09-15T13:00:00Z",
+  "serviceIds": []
+}
+
+### 5. Confirm booking
+POST {{BookingApp_HostAddress}}/api/bookings/00000000-0000-0000-0000-000000000000/confirm
+Accept: application/json
+
+### 6. Get booking details
+GET {{BookingApp_HostAddress}}/api/bookings/00000000-0000-0000-0000-000000000000
+Accept: application/json
